@@ -33,11 +33,11 @@ def build_model(input_shape, num_classes):
 def save_model(model):
     # Save jSON file first
     model_json = model.to_json()
-    with open("model.json", "w") as json_file:
+    with open("models/model.json", "w") as json_file:
         json_file.write(model_json)
 
     # Serialize model weights to HDF5
-    model.save_weights("model.h5")
+    model.save_weights("models/model.h5")
     print("Model and Weights Saved.")
 
 
