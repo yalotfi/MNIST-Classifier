@@ -30,6 +30,17 @@ def build_model(input_shape, num_classes):
     return model
 
 
+def save_model(model):
+    # Save jSON file first
+    model_json = model.to_json()
+    with open("model.json", "w") as json_file:
+        json_file.write(model_json)
+
+    # Serialize model weights to HDF5
+    model.save_weights("model.h5")
+    print("Model and Weights Saved.")
+
+
 def main():
     # Hyperparameters of the Architecture
     batch_size = 128  # Mini-batch gradient descent size
@@ -80,6 +91,8 @@ def main():
     print('Error: ', score[0])
     print('Accuracy: ', score[1])
 
+    # Save model weights to disk
+    save_model(model)
 
 if __name__ == '__main__':
     main()
