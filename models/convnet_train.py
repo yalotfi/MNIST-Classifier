@@ -1,3 +1,4 @@
+import coremltools
 import keras
 from keras import backend  # Will use a TF backend
 from keras.datasets import mnist  # MNIST dataset of 28x28 pixel b+w images
@@ -33,12 +34,21 @@ def build_model(input_shape, num_classes):
 def save_model(model):
     # Save jSON file first
     model_json = model.to_json()
-    with open("models/model.json", "w") as json_file:
+    with open("architecture.json", "w") as json_file:
         json_file.write(model_json)
 
     # Serialize model weights to HDF5
-    model.save_weights("models/model.h5")
-    print("Model and Weights Saved.")
+    model.save_weights("weights.h5")
+    print("Model architecture and weights saved to disk")
+
+
+def load_full_model(json_path, weight_path):
+    json_file = open(json_path, 'r')
+    model_architecture = json_file.read()
+    json_file.close()
+    model = keras.models.model_from_json(model_architecture)
+    model.load_weights(weight_path)
+    print("Model architecture and weights loaded from disk")
 
 
 def main():
@@ -93,6 +103,10 @@ def main():
 
     # Save model weights to disk
     save_model(model)
+    load_full_model('architecture.json', 'weights.h5')
+    # coreml_model = coremltools.converters.keras.convert(model)
+    # coreml_model.save('model.mlmodel')
+
 
 if __name__ == '__main__':
     main()
