@@ -1,4 +1,4 @@
-import coremltools
+
 import keras
 from keras import backend  # Will use a TF backend
 from keras.datasets import mnist  # MNIST dataset of 28x28 pixel b+w images
