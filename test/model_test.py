@@ -17,6 +17,7 @@ def process_img(img_path, res=(28, 28)):
     # Read, convert to grayscale, and resize the image file
     im = Image.open(img_path)
     im = im.convert(mode='L')
+    print("Converted img Size: {}".format(im.size))
     im = im.resize(res, resample=Image.NEAREST)
     print("Resolution: {0} \nColor Mode: {1}").format(im.size, im.mode)
 
