@@ -2,9 +2,9 @@ from setuptools import setup
 
 
 setup(
-    name='mnist-app',
+    name='mnist',
     packages=[
-        'app',
+        'mnist',
         'classifier'
     ],
     include_package_data=True,
