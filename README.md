@@ -18,10 +18,18 @@ $ pip install -r requirements.txt
 
 2. Run the flask app
 
+#### Ubuntu/OSX
 ```
-export FLASK_APP=mnist
-pip install -e .
-flask run
+$ export FLASK_APP=mnist
+$ pip install -e .
+$ flask run
+```
+
+#### Windows
+```
+> set FLASK_APP=mnist
+> pip install -e .
+> flask run
 ```
 
 ### What's the Stack?
