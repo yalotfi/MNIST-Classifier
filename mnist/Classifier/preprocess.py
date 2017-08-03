@@ -4,17 +4,22 @@ from keras.utils import to_categorical
 
 
 class Preprocessor():
-    """docstring for Preprocessor"""
+    """Preprocesses and stores MNIST data"""
+
     def __init__(self):
         super(Preprocessor, self).__init__()
-        # Load prepared MNIST data
-        (self.x_train, self.y_train),
-        (self.x_test,  self.y_test) = mnist.load_data()
+        self.x_train, self.x_test = [], []
+        self.y_train, self.y_test = [], []
         self.img_rows, self.img_cols = 28, 28
         self.num_classes = 10
-        self.input_shape = _get_dims()
+        self.input_shape = ()
 
-    def _get_dims(self):
+    def _load_mnist(self):
+        train_set, test_set = mnist.load_data()
+        self.x_train, self.y_train = train_set[0], train_set[1]
+        self.x_test, self.y_test = test_set[0], test_set[1]
+
+    def _reshape_mnist(self):
         # Check Keras 2D image format for reshaping tensors
         if K.image_data_format() == 'channels_first':
             # channel_first: (channels, rows, cols)
@@ -32,6 +37,10 @@ class Preprocessor():
             self.input_shape = (self.img_rows, self.img_cols, 1)
 
     def format_mnist(self):
+        # Get MNIST and input shape
+        self._load_mnist()
+        self._reshape_mnist()
+
         # Cast training data to float32
         self.x_train = self.x_train.astype('float32')
         self.x_test = self.x_test.astype('float32')
