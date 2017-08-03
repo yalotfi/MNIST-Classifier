@@ -10,8 +10,8 @@ from keras.layers import MaxPooling2D  # Pooling finds important features
 
 class ConvNetBuilder():
     """
-    Compile computational graph with Keras. Takes two arguments with several defaults:
-        input_shape: Input tensor dimensions as tuple - An image could be (28, 28, 1)
+    Compile computational graph with Keras:
+        input_shape: Tensor dimensions as tuple - An image could be (28, 28, 1)
         n_classes: Categorical classes - 10 classes for digit recognition task
         kernel_size: Default to (3,3) filter
         pool_size: Default to (2,2) field for max pooling layer
@@ -41,7 +41,7 @@ class ConvNetBuilder():
         model.add(Flatten())
         model.add(Dense(128, activation='relu'))
         model.add(Dropout(0.5))
-        model.add(Dense(self.num_classes, activation='softmax'))
+        model.add(Dense(self.n_classes, activation='softmax'))
         model.compile(loss=keras.losses.categorical_crossentropy,
                       optimizer=keras.optimizers.Adadelta(),
                       metrics=['accuracy'])
