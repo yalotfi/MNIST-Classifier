@@ -1,6 +1,6 @@
 from Classifier.preprocess import Preprocessor
 from Classifier.ConvNet import ConvNetBuilder
-from Classifier.ModelIO import ConvNetIO
+from Classifier.ModelIO import save_model
 
 
 # Process and build computational graph of ConvNet
@@ -29,7 +29,7 @@ score = model.evaluate(pr.x_test, pr.y_test, verbose=0)
 print('Error: ', score[0])
 print('Accuracy: {}\n'.format(score[1]))
 
-# Save model in './Classifier/model_stores'
-io = ConvNetIO(model)
-io.save_model()
-io.load_trained_model()
+# Save model in './app/model'
+architecture_path = 'app/model/architecture.json'
+weight_path = 'app/model/weights.h5'
+save_model(model, architecture_path, weight_path)
