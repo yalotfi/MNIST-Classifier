@@ -7,7 +7,7 @@ from flask import render_template
 from flask import request
 from flask import jsonify
 
-from ..Classifier.ModelIO import load_trained_model
+from Classifier.ModelIO import load_trained_model
 from app import app
 
 # Load model for inference

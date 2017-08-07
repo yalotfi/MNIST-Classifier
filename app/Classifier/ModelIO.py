@@ -4,7 +4,7 @@ from keras.models import model_from_json
 def save_model(model, architecture_path, weight_path):
     # Save architecture in jSON file first
     model_json = model.to_json()
-    with open(architecture_path, "w") as json_file:
+    with open(architecture_path, 'w') as json_file:
         json_file.write(model_json)
 
     # Serialize model weights to HDF5

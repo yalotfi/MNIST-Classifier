@@ -30,6 +30,6 @@ print('Error: ', score[0])
 print('Accuracy: {}\n'.format(score[1]))
 
 # Save model in './app/model'
-architecture_path = 'app/model/architecture.json'
-weight_path = 'app/model/weights.h5'
+architecture_path = 'model/architecture.json'
+weight_path = 'model/weights.h5'
 save_model(model, architecture_path, weight_path)
