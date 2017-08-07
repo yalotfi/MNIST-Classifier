@@ -104,8 +104,6 @@ def main():
     # Save model weights to disk
     save_model(model)
     load_full_model('architecture.json', 'weights.h5')
-    # coreml_model = coremltools.converters.keras.convert(model)
-    # coreml_model.save('model.mlmodel')
 
 
 if __name__ == '__main__':
