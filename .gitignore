@@ -1,5 +1,6 @@
 # Byte-compiled folders
 __pycache__/
+*.pyc
 
 # Packaging
 *egg-info/
