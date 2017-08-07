@@ -5,4 +5,4 @@ app = Flask(__name__)
 app.debug = True
 
 
-from mnist import views
+from app import views
