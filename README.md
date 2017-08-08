@@ -18,27 +18,20 @@ $ pip install -r requirements.txt
 
 2. Run the flask app
 
-#### Ubuntu/OSX
-```
-$ export FLASK_APP=mnist
-$ pip install -e .
-$ flask run
-```
-
-#### Windows
-```
-> set FLASK_APP=mnist
-> pip install -e .
-> flask run
-```
+Easiest way is to simply execute `python run.py` in the root directory. Syntax depends on your Python interpreter, but run this script as you would any Python program.
 
 ### What's the Stack?
 
-1. Flask - Serving the machine learning model
-2. Jinja - HTML templating
-3. p5.js - Graphical and interactive JS library based on Processing
+1. TensorFlow - Backend Deep Learning Library for Keras
+2. Keras - High level API to quickly build and train the ConvNet
+3. Flask - Serving the machine learning model
+4. Jinja - HTML templating
+5. p5.js - Graphical and interactive JS library based on Processing
 
 # Model:
+### Training:
+`train.py` in `app/` will train the model. On a GTX970 GPU, each epoch takes 8s. On an Intel i5 CPU, runtime shoots to about 30s per epoch.
+
 ### ConvNet Architecture:
 
 | Layer			| Memory		| Weights			|
