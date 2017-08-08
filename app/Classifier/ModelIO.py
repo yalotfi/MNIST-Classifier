@@ -22,3 +22,4 @@ def load_trained_model(architecture_path, weight_path):
     model = model_from_json(model_architecture)
     model.load_weights(weight_path)
     print("Model architecture and weights loaded from disk")
+    return model
